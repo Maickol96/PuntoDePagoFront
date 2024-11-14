@@ -1,15 +1,14 @@
 import React from 'react';
 import './App.css';
-import WeatherForecast from './WeatherForecast'; // Importa el componente WeatherForecast
+import WeatherForecast from './weather/WeatherForecast';
 
 function App() {
     return (
         <div className="App">
-
-            {/* Renderiza el componente WeatherForecast */}
+            {}
             <WeatherForecast />
         </div>
     );
 }
 
-export default App; // Asegúrate de tener esta línea
+export default App;

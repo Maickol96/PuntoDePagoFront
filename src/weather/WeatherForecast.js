@@ -6,7 +6,7 @@ const WeatherForecast = () => {
     const [city, setCity] = useState('');
     const [forecast, setForecast] = useState([]);
     const [error, setError] = useState('');
-    const [noData, setNoData] = useState(false); // Nuevo estado para controlar cuando no hay datos
+    const [noData, setNoData] = useState(false);
 
     const handleInputChange = (e) => {
         setCity(e.target.value);
@@ -18,18 +18,15 @@ const WeatherForecast = () => {
                 params: { city },
             });
 
-            // Verificar si la respuesta contiene un error 404
             if (response.data[1] === 404 && response.data[0].error) {
-                setError(response.data[0].error); // Muestra el mensaje de error de la API
+                setError(response.data[0].error);
                 setForecast([]);
                 setNoData(false);
             } else if (response.data.length > 0) {
-                // Si hay datos, mostrar el pronóstico
                 setForecast(response.data);
                 setError('');
                 setNoData(false);
             } else {
-                // Si no hay datos y no hay error 404
                 setForecast([]);
                 setNoData(true);
                 setError('');
